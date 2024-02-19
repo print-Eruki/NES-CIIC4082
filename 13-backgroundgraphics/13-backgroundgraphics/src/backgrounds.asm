@@ -207,4 +207,4 @@ sprites:
 .byte $78, $08, $00, $88
 
 .segment "CHR"
-.incbin "FullName.chr"
+.incbin "starfield.chr"
