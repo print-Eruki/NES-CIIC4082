@@ -1,0 +1,5 @@
+{
+  "executable": "C:\\cc65\\bin\\cl65",
+  "input" : "wrapper.s",
+  "params": "--verbose --target nes examples\\01_XandY.s"
+}
