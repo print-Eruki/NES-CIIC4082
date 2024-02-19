@@ -1,0 +1,4 @@
+*.C++ linguist-detectable=false
+*.Pascal linguist-detectable=true
+*.Lua linguist-detectable=false
+*.NWScript linguist-detectable=false
