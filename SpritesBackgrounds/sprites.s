@@ -100,16 +100,16 @@ hello:
 
   ; First name and Initial middle name
   .byte $6c, $00, $00, $6c  ; Y=$6c(108), Sprite=00(A), Palette=00, X=%6c(108)
-  .byte $6c, $01, $A1, $76  ; Y=$6c(108), Sprite=01(L), Palette=00, X=%76(118)
+  .byte $6c, $01, $00, $76  ; Y=$6c(108), Sprite=01(L), Palette=00, X=%76(118)
   .byte $6c, $02, $00, $80  ; Y=$6c(108), Sprite=02(E), Palette=00, X=%80(128)
   .byte $6c, $03, $01, $90  ; Y=$6c(108), Sprite=03(J), Palette=01, X=%94(148)
   
   ; last name
-  .byte $6c, $04, $01, $6c
-  .byte $6c, $05, $01, $76
-  .byte $6c, $06, $01, $80
-  .byte $6c, $00, $00, $8A
-  .byte $6c, $07, $00, $93
+  .byte $75, $04, $01, $6c
+  .byte $75, $05, $01, $76
+  .byte $75, $06, $01, $80
+  .byte $75, $00, $00, $8A
+  .byte $75, $07, $00, $93
   ; YOU CAN ADD MORE LETTERS IN THIS SPACE BUT REMEMBER TO INCREASE THE "cpx" ARGUMENT THAT DEFINES WHERE TO STOP LOADING SPRITES
 
 palettes: ;The first color should always be the same across all the palettes. MOdify this section to determine which colors you'd like to use
@@ -131,7 +131,7 @@ palettes: ;The first color should always be the same across all the palettes. MO
 
   ; To choose color palette we have to create a 'mask'/combination, this mean we will have two A
   ; Depending on the combination is the color palette you select
-  ; 0 $ 0 are ommitted
+  ; 0 & 0 are ommitted
   ; 1 & 0 = first color
   ; 0 & 1 = second color
   ; 1 & 1 = third color
@@ -224,13 +224,3 @@ palettes: ;The first color should always be the same across all the palettes. MO
   .byte %10000011
   .byte %10000001
   .byte $00, $00, $00, $00, $00, $00, $00, $00
-
-
-
-
-
-
-
-
-
-
