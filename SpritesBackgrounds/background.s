@@ -47,7 +47,7 @@ clear_oam:
 .proc main
   ; write a palette
   LDX PPUSTATUS
-  LDX #$27
+  LDX #$3f
   STX PPUADDR
   LDX #$01
   STX PPUADDR
@@ -58,143 +58,163 @@ load_palettes:
   CPX #$20
   BNE load_palettes
 
-  ; write sprite data
-;   LDX #$00
-; load_sprites:
-;   LDA sprites,X
-;   STA $0200,X
-;   INX
-;   CPX #$10
-;   BNE load_sprites
+    ;NAMETABLES 
+    ; Ale J Pagan Andujar
+    ;STORE ALL THE A`s
+    LDA PPUSTATUS ;A
+    LDA #$21
+    STA PPUADDR
+    LDA #$c5
+    STA PPUADDR
+    LDX #$04
+    STX PPUDATA
 
-	; write nametables
-	; big stars first
-	; LDA PPUSTATUS
-	; LDA #$21
-	; STA PPUADDR
-	; LDA #$6c
-	; STA PPUADDR
-	; LDX #$00
-	; STX PPUDATA
+    LDA PPUSTATUS ;A
+    LDA #$21
+    STA PPUADDR
+    LDA #$cc
+    STA PPUADDR
+    STX PPUDATA
 
-	; LDA PPUSTATUS
-	; LDA #$21
-	; STA PPUADDR
-	; LDA #$57
-	; STA PPUADDR
-	; STX PPUDATA
+    LDA PPUSTATUS ;A
+    LDA #$21
+    STA PPUADDR
+    LDA #$ce
+    STA PPUADDR
+    STX PPUDATA
 
-	; LDA PPUSTATUS
-	; LDA #$22
-	; STA PPUADDR
-	; LDA #$23
-	; STA PPUADDR
-	; STX PPUDATA
+    LDA PPUSTATUS ;A
+    LDA #$21
+    STA PPUADDR
+    LDA #$d1
+    STA PPUADDR
+    STX PPUDATA
 
-	; LDA PPUSTATUS
-	; LDA #$23
-	; STA PPUADDR
-	; LDA #$52
-	; STA PPUADDR
-	; STX PPUDATA
+    LDA PPUSTATUS ;A
+    LDA #$21
+    STA PPUADDR
+    LDA #$d6
+    STA PPUADDR
+    STX PPUDATA
 
-	; ; next, small star 1
-	; LDA PPUSTATUS
-	; LDA #$20
-	; STA PPUADDR
-	; LDA #$74
-	; STA PPUADDR
-	; LDX #$2d
-	; STX PPUDATA
+    LDA PPUSTATUS ;L
+    LDA #$21
+    STA PPUADDR
+    LDA #$c6
+    STA PPUADDR
+    LDX #$0f
+    STX PPUDATA
 
-	; LDA PPUSTATUS
-	; LDA #$21
-	; STA PPUADDR
-	; LDA #$43
-	; STA PPUADDR
-	; STX PPUDATA
+    LDA PPUSTATUS ;E 
+    LDA #$21
+    STA PPUADDR
+    LDA #$c7
+    STA PPUADDR
+    LDX #$08
+    STX PPUDATA
 
-	; LDA PPUSTATUS
-	; LDA #$21
-	; STA PPUADDR
-	; LDA #$5d
-	; STA PPUADDR
-	; STX PPUDATA
+    LDA PPUSTATUS ;J
+    LDA #$21
+    STA PPUADDR
+    LDA #$c9
+    STA PPUADDR
+    LDX #$0D
+    STX PPUDATA
 
-	; LDA PPUSTATUS
-	; LDA #$21
-	; STA PPUADDR
-	; LDA #$73
-	; STA PPUADDR
-	; STX PPUDATA
+    LDA PPUSTATUS ;J
+    LDA #$21
+    STA PPUADDR
+    LDA #$d5
+    STA PPUADDR
+    STX PPUDATA
 
-	; LDA PPUSTATUS
-	; LDA #$22
-	; STA PPUADDR
-	; LDA #$2f
-	; STA PPUADDR
-	; STX PPUDATA
+    LDA PPUSTATUS ;P
+    LDA #$21
+    STA PPUADDR
+    LDA #$cb
+    STA PPUADDR
+    LDX #$13
+    STX PPUDATA
 
-	; LDA PPUSTATUS
-	; LDA #$22
-	; STA PPUADDR
-	; LDA #$f7
-	; STA PPUADDR
-	; STX PPUDATA
+    LDA PPUSTATUS ;G
+    LDA #$21
+    STA PPUADDR
+    LDA #$cd
+    STA PPUADDR
+    LDX #$0a
+    STX PPUDATA
+    
+    ; store all the N`s
+    LDA PPUSTATUS ;N
+    LDA #$21
+    STA PPUADDR
+    LDA #$cf
+    STA PPUADDR
+    LDX #$11
+    STX PPUDATA
 
-	; ; finally, small star 2
-	; LDA PPUSTATUS
-	; LDA #$20
-	; STA PPUADDR
-	; LDA #$f1
-	; STA PPUADDR
-	; LDX #$2e
-	; STX PPUDATA
+    LDA PPUSTATUS ;N
+    LDA #$21
+    STA PPUADDR
+    LDA #$d2
+    STA PPUADDR
+    STX PPUDATA
 
-	; LDA PPUSTATUS
-	; LDA #$21
-	; STA PPUADDR
-	; LDA #$a8
-	; STA PPUADDR
-	; STX PPUDATA
+    LDA PPUSTATUS ;D
+    LDA #$21
+    STA PPUADDR
+    LDA #$d3
+    STA PPUADDR
+    LDX #$07
+    STX PPUDATA
 
-	; LDA PPUSTATUS
-	; LDA #$22
-	; STA PPUADDR
-	; LDA #$7a
-	; STA PPUADDR
-	; STX PPUDATA
+    LDA PPUSTATUS ;U
+    LDA #$21
+    STA PPUADDR
+    LDA #$d4
+    STA PPUADDR
+    LDX #$18
+    STX PPUDATA
+    
+    LDA PPUSTATUS ;R
+    LDA #$21
+    STA PPUADDR
+    LDA #$d7
+    STA PPUADDR
+    LDX #$15
+    STX PPUDATA
 
-	; LDA PPUSTATUS
-	; LDA #$23
-	; STA PPUADDR
-	; LDA #$44
-	; STA PPUADDR
-	; STX PPUDATA
+    LDA PPUSTATUS ; heart
+    LDA #$21
+    STA PPUADDR
+    LDA #$db
+    STA PPUADDR
+    LDX #$30
+    STX PPUDATA
 
-	; LDA PPUSTATUS
-	; LDA #$23
-	; STA PPUADDR
-	; LDA #$7c
-	; STA PPUADDR
-	; STX PPUDATA
+    LDA PPUSTATUS ; heart
+    LDA #$21
+    STA PPUADDR
+    LDA #$dc
+    STA PPUADDR
+    STX PPUDATA
 
-	; ; finally, attribute table
-	; ; LDA PPUSTATUS
-	; ; LDA #$23
-	; ; STA PPUADDR
-	; ; LDA #$c3
-	; ; STA PPUADDR
-	; ; LDA #%00000000
-	; ; STA PPUDATA
+    LDA PPUSTATUS ; heart
+    LDA #$21
+    STA PPUADDR
+    LDA #$dd
+    STA PPUADDR
+    STX PPUDATA
 
-	; LDA PPUSTATUS
-	; LDA #$23
-	; STA PPUADDR
-	; LDA #$e0
-	; STA PPUADDR
-	; LDA #%0000000
-	; STA PPUDATA
+    ;ATTRIBUTE TABLES
+      LDA PPUSTATUS
+      LDA #$03
+      STA PPUADDR
+      LDA #$d9
+      STA PPUADDR
+      LDA #%00000000
+      STA PPUDATA
+ 
 
 vblankwait:       ; wait for another vblank before continuing
   BIT PPUSTATUS
@@ -214,8 +234,8 @@ forever:
 
 .segment "RODATA"
 palettes: 
-.byte $0f, $12, $23, $27
-.byte $0f, $2b, $3c, $39
+.byte $0f, $3c, $16, $30
+.byte $0f, $14, $3c, $39
 .byte $0f, $0c, $07, $13
 .byte $0f, $19, $09, $29
 
@@ -224,11 +244,11 @@ palettes:
 .byte $0f, $19, $09, $29
 .byte $0f, $19, $09, $29
 
-; sprites:
-; .byte $70, $00, $00, $80
-; .byte $70, $06, $00, $88
-; .byte $78, $07, $00, $80
-; .byte $78, $08, $00, $88
+sprites:
+.byte $70, $00, $00, $80
+.byte $70, $06, $00, $88
+.byte $78, $07, $00, $80
+.byte $78, $08, $00, $88
 
 .segment "CHR"
-.incbin "FullName.chr"
+.incbin "starfield.chr"
